@@ -1,3 +1,51 @@
+#Custom
+
+First step: npm install -g @angular/cli
+
+ng new <project_name> --style=scss --routing
+(Routing flag will help us in creating routing file app-routing.module.ts, scss will make use of sass)
+
+For material design we can also use "ng add @angular/material"
+
+Now open the <project_name> folder in vs code(code .)
+
+To run the project, simply use "ng serve -o"
+
+We can generate our own components from CLI using "ng genereate component <component_name>" or "ng g c <name>"
+(It will update app.module.ts and will create html,scss,.ts and spec files)
+
+Main/Index component is app.component.html
+
+We can embed one component into another using the selector defined in <name>.component.ts file
+
+
+Now after editing style.scss, component's css, we can provide the routes in app-routing.module.ts by importing our components and editing Routes = [];
+
+
+Now we want to fetch a list of users from public API, for that we will create a service by using Angular cli 
+"ng generate service <service_name>". This will create test file and a service file(.spec.ts and .ts resp).
+If we have a reusable code to be accessed between multiple components, then we can create service for it.When it comes to fetch result from public API/accessing the DB etc then we create a service file.
+If we fant to fetch the result from a API, then we can use, angular6 internal http client.
+
+
+After adding the service, we need to add http client module in app.module.ts
+import { HttpClientModule } from '@angular/common/http';
+
+Services cant be used all alone, they can be used by a component, so inside one component.ts file we will import the service and Observable(to hold data) . Now we need to call the service.
+We can import ActivatedRoute for urls like /id
+
+After the service call we will change the html of the component.
+
+For adding animations we use npm i @angular/animations@latest --save
+Now import in app module.
+
+For deployment , run ng build (dist folder will be created)
+For production deployment, run ng build --prod
+
+
+In dist folder, open index.html and change <base href="/"> to: <base href="./">
+
+
 # Ng6
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
